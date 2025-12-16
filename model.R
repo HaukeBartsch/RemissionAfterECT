@@ -13,5 +13,6 @@ model <- rpart(
   minbucket = 1
 )
 
+fancyRpartPlot(model, caption = NULL)
 
 rpart.rules(model)
