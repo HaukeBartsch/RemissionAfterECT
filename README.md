@@ -1,4 +1,4 @@
-# Create a test dataset given a set of probabilities
+# Our universe description
 
 Access the website here: [Application](https://haukebartsch.github.io/RemissionAfterECT/fhir_app/)
 
