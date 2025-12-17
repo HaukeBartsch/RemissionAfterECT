@@ -1,4 +1,4 @@
-# Our universe description
+# Our universe
 
 Access the website here: [Application](https://haukebartsch.github.io/RemissionAfterECT/fhir_app/)
 
