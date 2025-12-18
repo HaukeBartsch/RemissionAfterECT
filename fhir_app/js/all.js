@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // launch            - Get the launch context
         // openid & fhirUser - Get the current user
         // patient/*.read    - Read patient data
-        scope: "launch", //  openid fhirUser patient/*.read",
+        scope: "launch openid fhirUser patient/*.read",
         
         // Issuer URL for the FHIR server
         iss: "https://cdr.fhirlab.net/fhir",
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // (where the launchUri is), you can omit this option because the default value is
         // ".". However, some servers do not support directory indexes so "." and "./"
         // will not automatically map to the "index.html" file in that directory.
-        redirectUri: "index.html"
+        //redirectUri: "index.html"
     });
     
     // 

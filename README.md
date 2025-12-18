@@ -21,3 +21,5 @@ From description to data to model to FHIR.
 
 Start the FHIR app (see link above) from a FHIR server like ehr.formlab.fhirlab.net, to link the application to clinical test data. In the above formlab instance select a demo practitioner, go to settings (wheel icon left) and enter our Launch URL "https://haukebartsch.github.io/RemissionAfterECT/fhir_app/" and the Client ID (add to all.js).
 
+Information about the application launch and authorization can be found here: https://hl7.org/fhir/smart-app-launch/app-launch.html
+
