@@ -57,10 +57,10 @@ function triggerCompute() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
+    
     // our FHIR endpoint in Australia
     const client = FHIR.client("https://cdr.fhirlab.net/fhir");
- 
+    
     // FHIR client example usage (just print all to console)
     client.request("Patient").then( function(patients) {
         if (patients.entry && patients.entry.length > 0) {
@@ -69,7 +69,27 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("No patients found on FHIR server.");
         } 
     }).catch(console.error);
-
+    
+    
+    FHIR.oauth2.authorize({
+        
+        // The client_id that you should have obtained after registering a client at
+        // the EHR.
+        clientId: "a57d90e3-5f69-4b92-aa2e-2992180863c1",
+        
+        // The scopes that you request from the EHR. In this case we want to:
+        // launch            - Get the launch context
+        // openid & fhirUser - Get the current user
+        // patient/*.read    - Read patient data
+        scope: "launch openid fhirUser patient/*.read",
+        
+        // Typically, if your redirectUri points to the root of the current directory
+        // (where the launchUri is), you can omit this option because the default value is
+        // ".". However, some servers do not support directory indexes so "." and "./"
+        // will not automatically map to the "index.html" file in that directory.
+        redirectUri: "index.html"
+    });
+    
     // 
     FHIR.oauth2.ready().then(function(client) {
         
@@ -82,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById("patientsName").innerText = error.stack;
             }
         );
-
+        
         // example patient is https://cdr.fhirlab.net/fhir/Patient/2897
         // get the gender for the current patient from the FHIR
         client.patient.read().then(function(patient) {
@@ -110,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("ageRange").value = age;
             document.getElementById("birthDate").value = birthDate;
         });
-
-
-
+        
+        
+        
         // Get MedicationRequests for the selected patient
         client.request("/MedicationRequest?patient=" + client.patient.id, {
             resolveReferences: [ "medicationReference" ],
@@ -138,13 +158,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         );
         
-    }).catch(console.error);
+    }).catch(
+        console.error
+    );
     
     
     
     // Select all input elements
     const inputs = document.querySelectorAll('input');
-        
+    
     // Add event listener to each input for 'input' event (fires on every change)
     inputs.forEach(input => {
         input.addEventListener('input', function(event) {

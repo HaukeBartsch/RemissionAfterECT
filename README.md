@@ -13,3 +13,11 @@ Variables of interest:
  - Psychotic episodes (yes or no variable about ongoing episodes, if yes higher prob. of remission)
  - MADRS scores (0…10 = normal, 10 .. 19 mild depression, 20 .. 34 moderate depression, 35 .. 60 severe depression, the higher the depression score the higher the prob. of remission)
  - Duration of current episode (shorter episodes the higher the probability of remission)
+
+
+# Fhir application
+
+From description to data to model to FHIR.
+
+Start the FHIR app (see link above) from a FHIR server like ehr.formlab.fhirlab.net, to link the application to clinical test data.
+
