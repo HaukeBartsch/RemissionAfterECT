@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const client = FHIR.client("https://cdr.fhirlab.net/fhir");
     
     // FHIR client example usage (just print all to console)
+    /*
     client.request("Patient").then( function(patients) {
         if (patients.entry && patients.entry.length > 0) {
             console.log("First patient from FHIR server:", patients.entry[0].resource);
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("No patients found on FHIR server.");
         } 
     }).catch(console.error);
-    
+    */
     
     FHIR.oauth2.authorize({
         
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // launch            - Get the launch context
         // openid & fhirUser - Get the current user
         // patient/*.read    - Read patient data
-        scope: "launch openid fhirUser patient/*.read",
+        scope: "launch", //  openid fhirUser patient/*.read",
         
         // Issuer URL for the FHIR server
         iss: "https://cdr.fhirlab.net/fhir",
