@@ -83,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // patient/*.read    - Read patient data
         scope: "launch openid fhirUser patient/*.read",
         
+        // Issuer URL for the FHIR server
+        iss: "https://cdr.fhirlab.net/fhir",
+        
         // Typically, if your redirectUri points to the root of the current directory
         // (where the launchUri is), you can omit this option because the default value is
         // ".". However, some servers do not support directory indexes so "." and "./"
